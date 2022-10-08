@@ -8,14 +8,6 @@ import 'regenerator-runtime/runtime';
 
 const recipeContainer = document.querySelector('.recipe');
 
-const timeout = function (s) {
-  return new Promise(function (_, reject) {
-    setTimeout(function () {
-      reject(new Error(`Request took too long! Timeout after ${s} second`));
-    }, s * 1000);
-  });
-};
-
 // https://forkify-api.herokuapp.com/v2
 
 ///////////////////////////////////////
@@ -37,7 +29,7 @@ const controlRecipes = async function () {
     recipeView.render(recipe);
     // same as: const recipeView = new recipeView(model.state.recipe);
   } catch (err) {
-    console.log(err);
+    console.error(`${err}`);
   }
 };
 controlRecipes();
