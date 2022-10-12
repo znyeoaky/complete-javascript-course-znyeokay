@@ -15,7 +15,7 @@ const recipeContainer = document.querySelector('.recipe');
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
-    console.log(id);
+    // console.log(id);//test
 
     if (!id) return;
     recipeView.renderSpinner();
@@ -25,20 +25,15 @@ const controlRecipes = async function () {
 
     // 2) Rendering recipe
     const { recipe } = model.state;
-    console.log(model.state);
+    // console.log(model.state);//test
     recipeView.render(recipe);
     // same as: const recipeView = new recipeView(model.state.recipe);
   } catch (err) {
-    console.error(`${err}`);
+    recipeView.renderError();
   }
 };
-controlRecipes();
 
-/*
-  window.addEventListener('hashchange', controlRecipes);
-  window.addEventListener('load', controlRecipes);
- //simplify to below
-*/
-['hashchange', 'load'].forEach(ev =>
-  window.addEventListener(ev, controlRecipes)
-);
+const init = function () {
+  recipeView.addHandlerRender(controlRecipes);
+};
+init();

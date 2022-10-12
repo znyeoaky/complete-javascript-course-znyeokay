@@ -1,6 +1,7 @@
 import { async } from 'regenerator-runtime';
 import { API_URL } from './config.js';
 import { getJSON } from './helpers.js';
+import recipeView from './views/recipeView.js';
 
 export const state = {
   recipe: {},
@@ -30,8 +31,9 @@ export const loadRecipe = async function (id) {
       cookingTime: recipe.cooking_time,
       ingredients: recipe.ingredients,
     };
-    console.log(state.recipe);
+    console.log(state.recipe); //test
   } catch (err) {
     console.error(`${err}`);
+    throw err;
   }
 };
