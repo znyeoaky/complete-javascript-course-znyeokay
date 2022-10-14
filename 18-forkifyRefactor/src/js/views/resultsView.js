@@ -9,12 +9,12 @@ class ResultsView extends View {
 
   _generateMarkup() {
     // console.log(this._data); //test
-    console.log(this._data.map(this._generateMarkupPreview)); //test
+    // console.log(this._data.map(this._generateMarkupPreview)); //test
     return this._data.map(this._generateMarkupPreview).join('');
   }
 
   _generateMarkupPreview(data) {
-    console.log(data);
+    // console.log(data);
     return `
       <li class="preview">
         <a class="preview__link " href="#${data.id}">
